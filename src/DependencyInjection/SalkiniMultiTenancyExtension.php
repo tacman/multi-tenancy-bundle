@@ -1,13 +1,13 @@
 <?php
-namespace FS\MultiTenancyBundle\DependencyInjection;
+namespace FDS\MultiTenancyBundle\DependencyInjection;
 
-use FS\MultiTenancyBundle\Service\ConfigurationGeneratorService;
+use FDS\MultiTenancyBundle\Service\ConfigurationGeneratorService;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 
-class FSMultiTenancyExtension extends Extension
+class FDSMultiTenancyExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
@@ -23,10 +23,10 @@ class FSMultiTenancyExtension extends Extension
 
         
         
-        $definition = $container->getDefinition('FS\MultiTenancyBundle\Service\TenantService');
+        $definition = $container->getDefinition('FDS\MultiTenancyBundle\Service\TenantService');
         $definition->setArgument(4, $configs['tenant_entity']);
 
-        $container->setParameter('fs.tenant_entity', $configs['tenant_entity']);
+        $container->setParameter('fds.tenant_entity', $configs['tenant_entity']);
 
 
         // Get the ConfigurationGeneratorService
@@ -39,6 +39,6 @@ class FSMultiTenancyExtension extends Extension
 
     public function getAlias(): string
     {
-        return 'fs_multi_tenancy';
+        return 'fds_multi_tenancy';
     }
 }

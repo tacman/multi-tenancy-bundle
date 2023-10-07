@@ -14,21 +14,21 @@ services:
         string $projectDir: '%kernel.project_dir%'
     
   
-  FS\MultiTenancyBundle\Service\TenantService:
+  FDS\MultiTenancyBundle\Service\TenantService:
     autowire: true
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     bind:
         # pass this value to any $projectDir argument for any service
         # that's created in this file (including controller arguments)
-        string $tenantEntity: '%fs.tenant_entity%'
+        string $tenantEntity: '%fds.tenant_entity%'
 
-  FS\MultiTenancyBundle\Service\ConfigurationGeneratorService:
+  FDS\MultiTenancyBundle\Service\ConfigurationGeneratorService:
     arguments:
       $container: '@service_container'
 
-  FS\MultiTenancyBundle\Command\CreateDbCommand:
-  FS\MultiTenancyBundle\Command\MigrateDbCommand:
-  FS\MultiTenancyBundle\Command\FixturesCommand:
+  FDS\MultiTenancyBundle\Command\CreateDbCommand:
+  FDS\MultiTenancyBundle\Command\MigrateDbCommand:
+  FDS\MultiTenancyBundle\Command\FixturesCommand:
 
     
   

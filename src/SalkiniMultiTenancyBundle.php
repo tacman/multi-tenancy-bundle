@@ -1,12 +1,12 @@
 <?php
 
-namespace FS\MultiTenancyBundle;
+namespace FDS\MultiTenancyBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * @author Fouad Salkini <fouadsa91@gmail.com>
  */
-class FSMultiTenancyBundle extends Bundle
+class FDSMultiTenancyBundle extends Bundle
 {
 }

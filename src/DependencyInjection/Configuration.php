@@ -1,7 +1,7 @@
 <?php
 
 
- namespace FS\MultiTenancyBundle\DependencyInjection;
+ namespace FDS\MultiTenancyBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -14,7 +14,7 @@ final class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('fs_multi_tenancy');
+        $treeBuilder = new TreeBuilder('fds_multi_tenancy');
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode

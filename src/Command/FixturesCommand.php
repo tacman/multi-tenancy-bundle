@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
- namespace FS\MultiTenancyBundle\Command;
+ namespace FDS\MultiTenancyBundle\Command;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;

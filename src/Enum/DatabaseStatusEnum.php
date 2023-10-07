@@ -1,6 +1,6 @@
 <?php
 
-namespace FS\MultiTenancyBundle\Enum;
+namespace FDS\MultiTenancyBundle\Enum;
 
 enum DatabaseStatusEnum: string
 {

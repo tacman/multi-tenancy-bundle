@@ -1,13 +1,13 @@
 <?php
 
-namespace FS\MultiTenancyBundle\Traits;
+namespace FDS\MultiTenancyBundle\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use FS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
-use FS\MultiTenancyBundle\Enum\FixturesStatusEnum;
-use FS\MultiTenancyBundle\Enum\MigrationStatusEnum;
+use FDS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
+use FDS\MultiTenancyBundle\Enum\FixturesStatusEnum;
+use FDS\MultiTenancyBundle\Enum\MigrationStatusEnum;
 
 /**
  *  Trait to add tenant database configuration to an entity.

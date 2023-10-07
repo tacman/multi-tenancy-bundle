@@ -31,7 +31,7 @@ Buy me a cup of coffee🙂 ☕️: [https://www.buymeacoffee.com/fouadsalkini](h
 
 # Installation:
 ```
-composer require fs/multi-tenancy-bundle
+composer require fds/multi-tenancy-bundle
 ```
 
 # Usage:
@@ -46,7 +46,7 @@ composer require fs/multi-tenancy-bundle
   // src/App/Entity/Tenant
   namespace App\Entity;
   use Doctrine\ORM\Mapping as ORM;
-  use FS\MultiTenancyBundle\Traits\TenantConfigTrait;
+  use FDS\MultiTenancyBundle\Traits\TenantConfigTrait;
 
   class Tenant
   {
@@ -58,11 +58,11 @@ composer require fs/multi-tenancy-bundle
     private ?int $id = null;
   ```
 
-## 3. Update fs_multi_tenancy.yaml
-  - Add your Tenant entity path to ``` config/packages/fs_multi_tenancy.yaml ``` file.
+## 3. Update fds_multi_tenancy.yaml
+  - Add your Tenant entity path to ``` config/packages/fds_multi_tenancy.yaml ``` file.
     ```
-      # config/packages/fs_multi_tenancy.yaml
-      fs_multi_tenancy:
+      # config/packages/fds_multi_tenancy.yaml
+      fds_multi_tenancy:
         tenant_entity: App\Entity\Tenant # set your custom path for your Tenant entity created in step 2.
     ```
 
@@ -74,7 +74,7 @@ composer require fs/multi-tenancy-bundle
     use App\Entity\Tenant;
     use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
     use Doctrine\Persistence\ManagerRegistry;
-    use FS\MultiTenancyBundle\Model\TenantRepositoryInterface;
+    use FDS\MultiTenancyBundle\Model\TenantRepositoryInterface;
 
     /**
      * @extends ServiceEntityRepository<Tenant>
@@ -106,7 +106,7 @@ composer require fs/multi-tenancy-bundle
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
     use Symfony\Component\HttpKernel\Event\ControllerEvent;
 
-    use FS\MultiTenancyBundle\Service\TenantService;
+    use FDS\MultiTenancyBundle\Service\TenantService;
 
     
     class RouterSubscriber implements EventSubscriberInterface

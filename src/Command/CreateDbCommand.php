@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FS\MultiTenancyBundle\Command;
+namespace FDS\MultiTenancyBundle\Command;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -20,11 +20,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Stopwatch\Stopwatch;
 
-use FS\MultiTenancyBundle\DBAL\MultiDbConnectionWrapper;
+use FDS\MultiTenancyBundle\DBAL\MultiDbConnectionWrapper;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use FS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
-use FS\MultiTenancyBundle\Service\TenantService;
+use FDS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
+use FDS\MultiTenancyBundle\Service\TenantService;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;

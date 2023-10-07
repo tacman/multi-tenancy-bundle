@@ -1,12 +1,12 @@
 <?php
 
-namespace FS\MultiTenancyBundle\Service;
+namespace FDS\MultiTenancyBundle\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use FS\MultiTenancyBundle\DBAL\MultiDbConnectionWrapper;
-use FS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
-use FS\MultiTenancyBundle\Enum\FixturesStatusEnum;
+use FDS\MultiTenancyBundle\DBAL\MultiDbConnectionWrapper;
+use FDS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
+use FDS\MultiTenancyBundle\Enum\FixturesStatusEnum;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;

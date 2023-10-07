@@ -1,6 +1,6 @@
 <?php
 
-namespace FS\MultiTenancyBundle\Exception;
+namespace FDS\MultiTenancyBundle\Exception;
 
 class MultiTenancyException extends \Exception
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace FS\MultiTenancyBundle\DBAL;
+namespace FDS\MultiTenancyBundle\DBAL;
 
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Configuration;

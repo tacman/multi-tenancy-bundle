@@ -1,11 +1,11 @@
 {
-    "name": "fs/multi-tenancy-bundle",
+    "name": "fds/multi-tenancy-bundle",
     "description": "A multi tenancy symfony bundle to support multi-tenant system that works with any symfony project",
     "type": "symfony-bundle",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "FS\\MultiTenancyBundle\\": "src/"
+            "FDS\\MultiTenancyBundle\\": "src/"
         }
     },
     "authors": [

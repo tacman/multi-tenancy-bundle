@@ -1,7 +1,7 @@
 <?php
 // src/Service/ConfigurationGeneratorService.php
 
-namespace FS\MultiTenancyBundle\Service;
+namespace FDS\MultiTenancyBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Yaml\Yaml;
@@ -19,13 +19,13 @@ class ConfigurationGeneratorService
     {
       
         // set the default configuration
-        $config = ["fs_multi_tenancy" => $customConfig];
+        $config = ["fds_multi_tenancy" => $customConfig];
 
         // Convert the configuration to YAML format
         $yamlConfig = Yaml::dump($config, 4);
 
         // Save the YAML configuration to a file
-        $configFilePath = $this->container->getParameter('kernel.project_dir') . '/config/packages/fs_multi_tenancy.yaml';
+        $configFilePath = $this->container->getParameter('kernel.project_dir') . '/config/packages/fds_multi_tenancy.yaml';
         file_put_contents($configFilePath, $yamlConfig);
     }
 }
