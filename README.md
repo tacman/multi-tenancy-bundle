@@ -39,8 +39,17 @@ composer require fds/multi-tenancy-bundle
 ## 1. env requirements:
 - Add ``` BASE_HOST ``` to your .env file. Ex: ``` BASE_HOST=yourmaindomain.com ```.
 
-## 2. Tenant Entity
-- Create Tenant Entity or use whatever Entity tou want to configure the bundle with.
+## 2. Add doctrine connection wrapper
+- open your ``` config/packages/doctrine.yaml ``` and add the ``` wrapper_class ```
+  ```
+  # config/packages/doctrine.yaml
+  doctrine:
+    dbal:
+        wrapper_class: FDS\MultiTenancyBundle\DBAL\MultiDbConnectionWrapper
+  ```
+
+## 3. Tenant Entity
+- Create Tenant Entity or use whatever Entity you want to configure the bundle with.
 - use ``` TenantConfigTrait ``` inside your Tenant entity to implement the full db attributes requirements.
 - 
   ```
@@ -59,7 +68,7 @@ composer require fds/multi-tenancy-bundle
     private ?int $id = null;
   ```
 
-## 3. Update fds_multi_tenancy.yaml
+## 4. Update fds_multi_tenancy.yaml
   - Add your Tenant entity path to ``` config/packages/fds_multi_tenancy.yaml ``` file.
     ```
       # config/packages/fds_multi_tenancy.yaml
@@ -67,7 +76,7 @@ composer require fds/multi-tenancy-bundle
         tenant_entity: App\Entity\Tenant # set your custom path for your Tenant entity created in step 2.
     ```
 
-## 4. Tenant Entity Repository
+## 5. Tenant Entity Repository
   - Your ``` TenantRepository ``` should impements the ``` TenantRepositoryInterface ``` interface.
     ```
     namespace App\Repository;
@@ -98,7 +107,7 @@ composer require fds/multi-tenancy-bundle
     }
     ```
 
-## 5. Create tenant database
+## 6. Create tenant database
 - create a record in your tenant entity (email, name, subdomain, dbName)
 - use this command to create a database for a specific tenant
   ```
@@ -106,7 +115,7 @@ composer require fds/multi-tenancy-bundle
   ```
 - You will be prompted to enter the tenant identifier(username|id|email|..) 
 
-## 6. Add RouterSubscriber class to your project (optional)
+## 7. Add RouterSubscriber class to your project (optional)
   - Define a class that implements ``` EventSubscriberInterface ``` in order to switch between databases automatically based on subdomain assigned to a specific Tenant
     ```
     // src/EventSubscriber/RouterSubscriber.php
@@ -143,7 +152,7 @@ composer require fds/multi-tenancy-bundle
     }
     ```
 
-## 7. Manually switch between databases (optional)
+## 8. Manually switch between databases (optional)
   - you can manually switch between databases by calling this function
     ```
     // $em is the main entity manager
