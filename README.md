@@ -98,7 +98,15 @@ composer require fds/multi-tenancy-bundle
     }
     ```
 
-## 5. Add RouterSubscriber class to your project
+## 5. Create tenant database
+- create a record in your tenant entity (email, name, subdomain, dbName)
+- use this command to create a database for a specific tenant
+  ```
+    php bin/console tenant:database:create
+  ```
+- You will be prompted to enter the tenant identifier(username|id|email|..) 
+
+## 6. Add RouterSubscriber class to your project (optional)
   - Define a class that implements ``` EventSubscriberInterface ``` in order to switch between databases automatically based on subdomain assigned to a specific Tenant
     ```
     // src/EventSubscriber/RouterSubscriber.php
@@ -135,7 +143,7 @@ composer require fds/multi-tenancy-bundle
     }
     ```
 
-## 6. Manually switch between databases (optional)
+## 7. Manually switch between databases (optional)
   - you can manually switch between databases by calling this function
     ```
     // $em is the main entity manager
