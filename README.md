@@ -1,6 +1,7 @@
 # multi-tenancy-bundle
 
-![sf-multi-tenancy](https://github.com/fouadsalkini/multi-tenancy-bundle/assets/51783676/dd3d8e29-5b56-498d-8d33-f8e4bf57dd76)
+![sf-multi-tenancy](https://github.com/fouadSalkini/multi-tenancy-bundle/assets/51783676/43351c3d-b947-483f-8c79-b863369ab83d)
+
 
 A simple method for smoothly integrating multi-tenant databases into your Symfony application is provided by the Symfony Multi Tenancy Bundle. By managing numerous databases through a single entity manager, it facilitates the use of Doctrine and makes runtime switching between databases possible.
 This package includes a wide range of functionalities, including the simple switching between tenant databases according to an event.
