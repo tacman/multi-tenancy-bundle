@@ -49,7 +49,7 @@ composer require fds/multi-tenancy-bundle
   ```
 
 ## 3. Tenant Entity
-- Create Tenant Entity or use whatever Entity you want to configure the bundle with.
+- Create Tenant Entity or use whatever Entity you want to configure the bundle with:.
 - use ``` TenantConfigTrait ``` inside your Tenant entity to implement the full db attributes requirements.
 - 
   ```
@@ -108,7 +108,16 @@ composer require fds/multi-tenancy-bundle
     ```
 
 ## 6. Create tenant database
-- create a record in your tenant entity (email, name, subdomain, dbName)
+- create a record in your tenant entity (email, name, subdomain, dbName):
+  ```
+    $tenant = new Tenant();
+    $tenant->setEmail("email@example.com");
+    $tenant->setName("First tenant");
+    $tenant->setSubdomain("first");
+    $tenant->setDbName("tenant_1");
+    $em->persist($tenant);
+    $em->flush();
+  ```
 - use this command to create a database for a specific tenant
   ```
     php bin/console tenant:database:create
