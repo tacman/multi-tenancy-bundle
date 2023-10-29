@@ -107,7 +107,72 @@ composer require fds/multi-tenancy-bundle
     }
     ```
 
-## 6. Create tenant database
+## 6. Create first migration
+- create db migration using this command:
+  ```
+  bin/console doctrine:migrations:diff // default migrations folder is '%kernel.project_dir%/migrations'
+  ```
+- update db schema using this command:
+  ```
+  bin/console doctrine:migrations:migrate
+  ```
+- you can update your migrations folder by editing ```doctrine_migrations.yaml```
+  ```
+    # config/packages/doctrine_migrations.yaml
+    doctrine_migrations:
+      migrations_paths:
+          # namespace is arbitrary but should be different from App\Migrations
+          # as migrations classes should NOT be autoloaded
+          'DoctrineMigrations\Main': '%kernel.project_dir%/migrations/main'
+      enable_profiler: '%kernel.debug%'
+  ```
+## 7. Using evotodi/seed-bundle (optional)
+- follow this documentation to create a Seed class:
+  [https://packagist.org/packages/evotodi/seed-bundle](https://packagist.org/packages/evotodi/seed-bundle)
+- update you Seed class as following to create seeds for your tenant databases
+  ```
+    namespace App\Seeds;
+    /**
+    * The load method is called when loading a seed 
+    */
+    public function load(InputInterface $input, OutputInterface $output): int
+    { 
+
+        /**
+        * Doctrine logging eats a lot of memory, this is a wrapper to disable logging
+        */ 
+        $this->disableDoctrineLogging();
+
+        /** @var MultiDbConnectionWrapper $connection */
+        $connection = $this->em->getConnection();
+        
+        $this->runSeeds(); // run your seeds for your main database; you should define the runSeeds() function before.
+
+        $tenants = $this->getTenants(); // add a function to fetch tenants from your main database.
+
+        if (!count($tenants)) {
+            return 0;
+        }
+
+        // loading seeds for each tenant
+        foreach ($tenants as $tenant) {
+            try {
+                $connection->changeDatabase($tenant->getDbName());
+                $this->runFixtures();
+            } catch (Exception $e) {
+                // error handling here
+            }
+        }
+
+        /**
+        * Must return an exit code.
+        * A value other than 0 or Command::SUCCESS is considered a failed seed load/unload.
+        */ 
+        return 0;
+    }
+  ```
+
+## 8. Create tenant instance and database
 - create a record in your tenant entity (email, name, subdomain, dbName):
   ```
     $tenant = new Tenant();
@@ -124,7 +189,7 @@ composer require fds/multi-tenancy-bundle
   ```
 - You will be prompted to enter the tenant identifier(username|id|email|..) 
 
-## 7. Add RouterSubscriber class to your project (optional)
+## 9. Add RouterSubscriber class to your project (optional)
   - Define a class that implements ``` EventSubscriberInterface ``` in order to switch between databases automatically based on subdomain assigned to a specific Tenant
     ```
     // src/EventSubscriber/RouterSubscriber.php
@@ -161,7 +226,7 @@ composer require fds/multi-tenancy-bundle
     }
     ```
 
-## 8. Manually switch between databases (optional)
+## 10. Manually switch between databases (optional)
   - you can manually switch between databases by calling this function
     ```
     // $em is the main entity manager
