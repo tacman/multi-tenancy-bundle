@@ -47,10 +47,10 @@ use Symfony\Component\HttpKernel\KernelInterface;
  * @author Yonel Ceruto <yonelceruto@gmail.com>
  */
 #[AsCommand(
-    name: 'tenant:fixtures:load',
-    description: 'Load fixtures for registered tenants'
+    name: 'tenant:seeds:load',
+    description: 'Load seeds for registered tenants'
 )]
-final class FixturesCommand extends Command
+final class SeedsCommand extends Command
 {
     private SymfonyStyle $io;
 
@@ -116,7 +116,7 @@ final class FixturesCommand extends Command
 
 
         $stopwatch = new Stopwatch();
-        $stopwatch->start('load-tenant-fixtures-command');
+        $stopwatch->start('load-tenant-seeds-command');
 
         try{
             $application = new Application($this->kernel);
@@ -127,16 +127,16 @@ final class FixturesCommand extends Command
             $newOutput = new BufferedOutput();
             $application->run($newInput, $output);
             
-            $this->io->success(sprintf('%s fixtures was successfully loaded', 'Tenant'));
+            $this->io->success(sprintf('%s seeds was successfully loaded', 'Tenant'));
         }catch(Exception $e){
-            $this->io->error(sprintf('%s Error while loading fixtures for database', 'Tenant'));
+            $this->io->error(sprintf('%s Error while loading seeds for database', 'Tenant'));
         }
             
 
 
-        $event = $stopwatch->stop('load-tenant-fixtures-command');
+        $event = $stopwatch->stop('load-tenant-seeds-command');
         if ($output->isVerbose()) {
-            $this->io->comment(sprintf('Loaded tenant fixtures / Elapsed time: %.2f ms / Consumed memory: %.2f MB', $event->getDuration(), $event->getMemory() / (1024 ** 2)));
+            $this->io->comment(sprintf('Loaded tenant seeds / Elapsed time: %.2f ms / Consumed memory: %.2f MB', $event->getDuration(), $event->getMemory() / (1024 ** 2)));
         }
 
         return Command::SUCCESS;

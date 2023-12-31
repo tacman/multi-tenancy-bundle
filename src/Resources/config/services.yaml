@@ -28,7 +28,7 @@ services:
 
   FDS\MultiTenancyBundle\Command\CreateDbCommand:
   FDS\MultiTenancyBundle\Command\MigrateDbCommand:
-  FDS\MultiTenancyBundle\Command\FixturesCommand:
+  FDS\MultiTenancyBundle\Command\SeedsCommand:
 
     
   

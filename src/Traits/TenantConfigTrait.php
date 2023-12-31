@@ -56,8 +56,8 @@ trait TenantConfigTrait
     #[ORM\Column(name: "dbStatus", type: 'string', length: 255, enumType: DatabaseStatusEnum::class)]
     private DatabaseStatusEnum $dbStatus = DatabaseStatusEnum::DATABASE_NOT_CREATED;
 
-    #[ORM\Column(name: "fixturesStatus", type: 'string', length: 255, enumType: FixturesStatusEnum::class)]
-    private FixturesStatusEnum $fixturesStatus = FixturesStatusEnum::FIXTURES_NOT_CREATED;
+    #[ORM\Column(name: "seedsStatus", type: 'string', length: 255, enumType: FixturesStatusEnum::class)]
+    private FixturesStatusEnum $seedsStatus = FixturesStatusEnum::FIXTURES_NOT_CREATED;
 
     #[ORM\Column(name: "migrationStatus", type: 'string', length: 255, enumType: MigrationStatusEnum::class)]
     private MigrationStatusEnum $migrationStatus = MigrationStatusEnum::MIGRATION_NOT_CREATED;
@@ -140,12 +140,12 @@ trait TenantConfigTrait
 
     public function getFixturesStatus(): ?FixturesStatusEnum
     {
-        return $this->fixturesStatus;
+        return $this->seedsStatus;
     }
 
-    public function setFixturesStatus(FixturesStatusEnum $fixturesStatus): static
+    public function setFixturesStatus(FixturesStatusEnum $seedsStatus): static
     {
-        $this->fixturesStatus = $fixturesStatus;
+        $this->seedsStatus = $seedsStatus;
 
         return $this;
     }

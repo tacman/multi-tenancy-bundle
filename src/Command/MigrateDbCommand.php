@@ -176,7 +176,7 @@ final class MigrateDbCommand extends Command
                     //'version' => 'latest'
                 ]);
                 $newInput->setInteractive(false);
-                $otherCommand = new FixturesCommand($this->em, $this->registry, $this->projectDir, $this->kernel);
+                $otherCommand = new SeedsCommand($this->em, $this->registry, $this->projectDir, $this->kernel);
                 $otherCommand->run($newInput, $output);
             }catch(Exception $e){
                 $this->io->error(sprintf('%s Error while migrating database (%s) %s : %s', 'Tenant', $dbName, $username, $e->getMessage()));
