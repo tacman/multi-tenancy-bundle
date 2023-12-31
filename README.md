@@ -158,7 +158,7 @@ composer require fds/multi-tenancy-bundle
         foreach ($tenants as $tenant) {
             try {
                 $connection->changeDatabase($tenant->getDbName());
-                $this->runFixtures();
+                $this->runSeeds();
             } catch (Exception $e) {
                 // error handling here
             }
@@ -220,7 +220,7 @@ composer require fds/multi-tenancy-bundle
         {
           $request = $event->getRequest();
     
-          // call the checkCurrentTenant function to detect the domain changes and switch to the tenant specific database.
+          // call the checkCurrentTenant function to detect the domain changes and switch to the tenant's specific database.
           $this->tenantService->checkCurrentTenant($request);
         }
     }
