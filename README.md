@@ -13,6 +13,7 @@ Buy me a cup of coffee🙂 ☕️: [https://www.buymeacoffee.com/fouadsalkini](h
 
 # Features:
 - Supports all kinds of databases.
+- Supports multiple subdomains(tenant1.example.com, tenant2.example.com,..).
 - Easy to use and handle
 - Extendable bundle
 - Not affecting the application performance
