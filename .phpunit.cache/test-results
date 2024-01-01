@@ -1,1 +1,1 @@
-{"version":1,"defects":{"FirstTest::testSample":5},"times":{"FirstTest::testSample":0.003}}
+{"version":1,"defects":{"FirstTest::testSample":5,"FDS\\MultiTenancyBundle\\Tests\\ServiceWiringTest::testDbConfigServiceWiring":8,"FDS\\MultiTenancyBundle\\tests\\ServiceWiringTest::testDbConfigServiceWiring":8,"ServiceWiringTest::testDbConfigServiceWiring":8},"times":{"FirstTest::testSample":0.003,"FDS\\MultiTenancyBundle\\Tests\\ServiceWiringTest::testDbConfigServiceWiring":0.016}}
