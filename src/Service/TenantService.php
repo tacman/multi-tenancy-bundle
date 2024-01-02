@@ -39,6 +39,21 @@ class TenantService
         
     }
 
+    public function getCurrentTenant(Request $request){
+
+        $connection = $this->em->getConnection();
+        if(!$connection instanceof MultiDbConnectionWrapper){
+            return null;
+        }
+        $connection->changeDatabase($this->mainDb);
+
+        $subdomain = $this->findSubdomain($request);
+
+        $tenant = $this->findTenantEntityBySubdomain($subdomain);
+
+        return $tenant;
+    }
+
 
     public function findSubdomain(Request $request){
         $request->attributes->set('baseHost', $this->baseHost);
