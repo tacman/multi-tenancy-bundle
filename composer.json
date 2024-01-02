@@ -23,8 +23,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "symfony/orm-pack": "^2.0",
         "doctrine/annotations": "^1.0|^2.0",
-        "symfony/filesystem": "^6.0|^7.0",
-        "evotodi/seed-bundle": "^6.2"
+        "symfony/filesystem": "^6.0|^7.0"
         
     },
     "require-dev": {
