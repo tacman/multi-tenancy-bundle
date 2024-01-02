@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use FDS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
-use FDS\MultiTenancyBundle\Enum\FixturesStatusEnum;
+use FDS\MultiTenancyBundle\Enum\SeedsStatusEnum;
 use FDS\MultiTenancyBundle\Enum\MigrationStatusEnum;
 
 /**
@@ -56,8 +56,8 @@ trait TenantConfigTrait
     #[ORM\Column(name: "dbStatus", type: 'string', length: 255, enumType: DatabaseStatusEnum::class)]
     private DatabaseStatusEnum $dbStatus = DatabaseStatusEnum::DATABASE_NOT_CREATED;
 
-    #[ORM\Column(name: "seedsStatus", type: 'string', length: 255, enumType: FixturesStatusEnum::class)]
-    private FixturesStatusEnum $seedsStatus = FixturesStatusEnum::FIXTURES_NOT_CREATED;
+    #[ORM\Column(name: "seedsStatus", type: 'string', length: 255, enumType: SeedsStatusEnum::class)]
+    private SeedsStatusEnum $seedsStatus = SeedsStatusEnum::SEEDS_NOT_CREATED;
 
     #[ORM\Column(name: "migrationStatus", type: 'string', length: 255, enumType: MigrationStatusEnum::class)]
     private MigrationStatusEnum $migrationStatus = MigrationStatusEnum::MIGRATION_NOT_CREATED;
@@ -138,12 +138,12 @@ trait TenantConfigTrait
         $this->dbName = $name . "_tenant_" . $this->getId();
     }
 
-    public function getFixturesStatus(): ?FixturesStatusEnum
+    public function getSeedsStatus(): ?SeedsStatusEnum
     {
         return $this->seedsStatus;
     }
 
-    public function setFixturesStatus(FixturesStatusEnum $seedsStatus): static
+    public function setSeedsStatus(SeedsStatusEnum $seedsStatus): static
     {
         $this->seedsStatus = $seedsStatus;
 

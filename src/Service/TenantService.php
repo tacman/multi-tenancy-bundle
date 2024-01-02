@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use FDS\MultiTenancyBundle\DBAL\MultiDbConnectionWrapper;
 use FDS\MultiTenancyBundle\Enum\DatabaseStatusEnum;
-use FDS\MultiTenancyBundle\Enum\FixturesStatusEnum;
+use FDS\MultiTenancyBundle\Enum\SeedsStatusEnum;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,7 +72,7 @@ class TenantService
         if($tenant->getDbStatus() != DatabaseStatusEnum::DATABASE_CREATED){
             throw new BadRequestHttpException("Database not yet created.Please try again later.");
         }
-        if($tenant->getFixturesStatus() != FixturesStatusEnum::FIXTURES_CREATED){
+        if($tenant->getSeedsStatus() != SeedsStatusEnum::SEEDS_CREATED){
             throw new BadRequestHttpException("Database is not configured yet.Please try again later.");
         }
         $database = $tenant->getDbName();
