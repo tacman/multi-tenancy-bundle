@@ -72,7 +72,17 @@ class TenantService
             throw new \Exception("Cannot connect to db");
         }
         
-        $connection->changeDatabase($this->mainDb);
+        try {
+            $connection->connect();
+        } catch (\Exception $e) {
+            return;
+        }
+        
+        try{
+            $connection->changeDatabase($this->mainDb);
+        }catch(Exception $e){
+            return;
+        }
         
         $subdomain = $this->findSubdomain($request);
         if(!$subdomain){
