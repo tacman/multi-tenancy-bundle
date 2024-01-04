@@ -26,6 +26,13 @@ class ConfigurationGeneratorService
 
         // Save the YAML configuration to a file
         $configFilePath = $this->container->getParameter('kernel.project_dir') . '/config/packages/fds_multi_tenancy.yaml';
-        file_put_contents($configFilePath, $yamlConfig);
+        if(file_exists($configFilePath)){
+            return;
+        }
+        try{
+            file_put_contents($configFilePath, $yamlConfig);
+        }catch(Exception $e){
+            return;
+        }
     }
 }
