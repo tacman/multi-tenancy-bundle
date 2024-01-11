@@ -15,28 +15,7 @@ use FDS\MultiTenancyBundle\Enum\MigrationStatusEnum;
  */
 trait TenantConfigTrait
 {
-    #[ORM\Column(name: "email", type: "string", length: 128)]
-    #[Assert\Length(
-        min: 6,
-        max: 128,
-        minMessage: "The username must be more than {{limit}} characters",
-        maxMessage: "The username must be less than {{limit}} characters",
-    )]
-    public $email;
-
-    #[ORM\Column(name: "name", type: "string", length: 255, nullable: true)]
-    #[Assert\Length(
-        min: 3,
-        max: 128,
-    )]
-    public $name;
-
-    #[ORM\Column(name: "companyName", type: "string", length: 255, nullable: true)]
-    #[Assert\Length(
-        min: 3,
-        max: 128,
-    )]
-    public $companyName;
+    
 
     #[ORM\Column(name: "subdomain", type: "string", length: 255, nullable: true)]
     #[Assert\Length(
@@ -62,30 +41,7 @@ trait TenantConfigTrait
     #[ORM\Column(name: "migrationStatus", type: 'string', length: 255, enumType: MigrationStatusEnum::class)]
     private MigrationStatusEnum $migrationStatus = MigrationStatusEnum::MIGRATION_NOT_CREATED;
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
+    
     public function getSubdomain(): ?string
     {
         return $this->subdomain;
@@ -122,17 +78,7 @@ trait TenantConfigTrait
         return $this;
     }
 
-    public function getCompanyName(): ?string
-    {
-        return $this->companyName;
-    }
-
-    public function setCompanyName(?string $companyName): static
-    {
-        $this->companyName = $companyName;
-
-        return $this;
-    }
+    
 
     public function generateDatabase($name){
         $this->dbName = $name . "_tenant_" . $this->getId();
