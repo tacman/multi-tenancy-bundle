@@ -11,6 +11,12 @@ This package includes a wide range of functionalities, including the simple swit
 
 Buy me a cup of coffee🙂 ☕️: [https://www.buymeacoffee.com/fouadsalkini](https://www.buymeacoffee.com/fouadsalkini)
 
+# Numbers: 
+
+[![Total Downloads](https://poser.pugx.org/fds/multi-tenancy-bundle/downloads)](https://packagist.org/packages/fds/multi-tenancy-bundle)
+[![Monthly Downloads](https://poser.pugx.org/fds/multi-tenancy-bundle/d/monthly)](https://packagist.org/packages/fds/multi-tenancy-bundle)
+[![Daily Downloads](https://poser.pugx.org/fds/multi-tenancy-bundle/d/daily)](https://packagist.org/packages/fds/multi-tenancy-bundle)
+
 # Features:
 - Supports all kinds of databases.
 - Supports multiple subdomains(tenant1.example.com, tenant2.example.com,..).
