@@ -1,5 +1,6 @@
 {
     "name": "fds/multi-tenancy-bundle",
+    "version": "1.0.0",
     "description": "A multi tenancy symfony bundle to support multi-tenant system that works with any symfony project",
     "type": "symfony-bundle",
     "license": "MIT",
